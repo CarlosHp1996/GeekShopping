@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GeekShopping.ProductAPI.Controllers
 {
-    [Route("api/v1)/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace GeekShopping.ProductAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProductDto>> Create(ProductDto productDto)
+        public async Task<ActionResult<ProductDto>> Create([FromBody] ProductDto productDto)
         {
             if (productDto == null)
                 return BadRequest();
@@ -44,7 +44,7 @@ namespace GeekShopping.ProductAPI.Controllers
         }       
         
         [HttpPut]
-        public async Task<ActionResult<ProductDto>> Update(ProductDto productDto)
+        public async Task<ActionResult<ProductDto>> Update([FromBody] ProductDto productDto)
         {          
             if (productDto == null)
                 return BadRequest();
